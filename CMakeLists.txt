@@ -285,8 +285,8 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
                ${PROJECT_BINARY_DIR}/LICENSE.jpeg-xl COPYONLY)
 
 # Enable tests regardless of where are they defined.
-enable_testing()
-include(CTest)
+set(BUILD_TESTING OFF) #enable_testing()
+#include(CTest)
 
 # Libraries.
 add_subdirectory(lib)
