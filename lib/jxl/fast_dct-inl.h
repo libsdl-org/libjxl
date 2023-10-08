@@ -15,6 +15,9 @@
 
 #include "lib/jxl/base/status.h"
 
+#include <cmath>
+#include <array>
+
 HWY_BEFORE_NAMESPACE();
 namespace jxl {
 namespace HWY_NAMESPACE {
