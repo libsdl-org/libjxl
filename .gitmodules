@@ -1,6 +1,7 @@
 [submodule "third_party/brotli"]
 	path = third_party/brotli
-	url = https://github.com/google/brotli
+	url = https://github.com/libsdl-org/brotli.git
+	branch = v1.1.0-SDL
 [submodule "third_party/lcms"]
 	path = third_party/lcms
 	url = https://github.com/mm2/Little-CMS
@@ -15,7 +16,8 @@
 	url = https://skia.googlesource.com/skcms
 [submodule "third_party/highway"]
 	path = third_party/highway
-	url = https://github.com/google/highway
+	url = https://github.com/libsdl-org/highway.git
+	branch = 1.2.0-SDL
 [submodule "third_party/libpng"]
 	path = third_party/libpng
 	url = https://github.com/glennrp/libpng.git
