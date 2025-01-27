@@ -334,15 +334,16 @@ include(GNUInstallDirs)
 
 # Separately build/configure testing frameworks and other third_party libraries
 # to allow disabling tests in those libraries.
-include(third_party/testing.cmake)
+set(BUILD_TESTING OFF) # for SDL
+#include(third_party/testing.cmake)
 add_subdirectory(third_party)
 # Copy the JXL license file to the output build directory.
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
                ${PROJECT_BINARY_DIR}/LICENSE.jpeg-xl COPYONLY)
 
 # Enable tests regardless of where they are defined.
-enable_testing()
-include(CTest)
+#enable_testing()
+#include(CTest)
 # Specify default location of `testdata`:
 if(NOT DEFINED JPEGXL_TEST_DATA_PATH)
   set(JPEGXL_TEST_DATA_PATH "${PROJECT_SOURCE_DIR}/testdata")
