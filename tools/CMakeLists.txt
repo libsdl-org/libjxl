@@ -444,7 +444,7 @@ if (JNI_FOUND AND Java_FOUND)
   )
   get_target_property(JXL_JNI_WRAPPER_TEST_JAR jxl_jni_wrapper_test JAR_FILE)
 
-  if(NOT SANITIZER MATCHES ".san")
+  if(BUILD_TESTING AND NOT SANITIZER MATCHES ".san")
     # NB: Vanilla OpenJDK 8 / 11 are known to work well (i.e. either
     #     "which java" or JAVA_HOME environment variable point to the path like
     #     "/usr/lib/jvm/java-xx-openjdk-yyy" on Debian Linux).
