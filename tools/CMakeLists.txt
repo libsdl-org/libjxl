@@ -514,7 +514,7 @@ if (JNI_FOUND AND Java_FOUND)
     get_target_property(JPEGLI_JNI_WRAPPER_TEST_JAR jpegli_jni_wrapper_test JAR_FILE)
   endif()
 
-  if(NOT SANITIZER MATCHES ".san")
+  if(BUILD_TESTING AND NOT SANITIZER MATCHES ".san")
     # NB: Vanilla OpenJDK 8 / 11 are known to work well (i.e. either
     #     "which java" or JAVA_HOME environment variable point to the path like
     #     "/usr/lib/jvm/java-xx-openjdk-yyy" on Debian Linux).
