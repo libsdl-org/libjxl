@@ -10,21 +10,21 @@ LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/third_party/brotli/c/dec \
 
 BROTLI_SRC_FILES := \
-    $(LOCAL_PATH)/third_party/brotli/c/common/constants.c \
-    $(LOCAL_PATH)/third_party/brotli/c/common/context.c \
-    $(LOCAL_PATH)/third_party/brotli/c/common/dictionary.c \
-    $(LOCAL_PATH)/third_party/brotli/c/common/platform.c \
-    $(LOCAL_PATH)/third_party/brotli/c/common/shared_dictionary.c \
-    $(LOCAL_PATH)/third_party/brotli/c/common/transform.c \
-    $(LOCAL_PATH)/third_party/brotli/c/dec/bit_reader.c \
-    $(LOCAL_PATH)/third_party/brotli/c/dec/decode.c \
-    $(LOCAL_PATH)/third_party/brotli/c/dec/huffman.c \
-    $(LOCAL_PATH)/third_party/brotli/c/dec/state.c \
+    third_party/brotli/c/common/constants.c \
+    third_party/brotli/c/common/context.c \
+    third_party/brotli/c/common/dictionary.c \
+    third_party/brotli/c/common/platform.c \
+    third_party/brotli/c/common/shared_dictionary.c \
+    third_party/brotli/c/common/transform.c \
+    third_party/brotli/c/dec/bit_reader.c \
+    third_party/brotli/c/dec/decode.c \
+    third_party/brotli/c/dec/huffman.c \
+    third_party/brotli/c/dec/state.c \
 
 HIGHWAY_SRC_FILES := \
-    $(LOCAL_PATH)/third_party/highway/hwy/aligned_allocator.cc \
-    $(LOCAL_PATH)/third_party/highway/hwy/per_target.cc \
-    $(LOCAL_PATH)/third_party/highway/hwy/targets.cc \
+    third_party/highway/hwy/aligned_allocator.cc \
+    third_party/highway/hwy/per_target.cc \
+    third_party/highway/hwy/targets.cc \
 
 LOCAL_SRC_FILES :=  \
     $(BROTLI_SRC_FILES) \
@@ -115,7 +115,7 @@ LOCAL_SRC_FILES :=  \
     lib/jxl/splines.cc \
     lib/jxl/toc.cc \
 
-LOCAL_CFLAGS := -DJXL_INTERNAL_LIBRARY_BUILD -DJPEGXL_MAJOR_VERSION=0 -DJPEGXL_MINOR_VERSION=7 -DJPEGXL_PATCH_VERSION=2 -DJPEGXL_ENABLE_TRANSCODE_JPEG=1
+LOCAL_CFLAGS := -DJXL_INTERNAL_LIBRARY_BUILD -DJPEGXL_MAJOR_VERSION=0 -DJPEGXL_MINOR_VERSION=7 -DJPEGXL_PATCH_VERSION=2 -DJPEGXL_ENABLE_TRANSCODE_JPEG=1 -D__STDC_FORMAT_MACROS
 
 LOCAL_MODULE := jxl
 
