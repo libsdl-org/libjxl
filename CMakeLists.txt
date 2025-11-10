@@ -34,6 +34,59 @@ check_cxx_source_compiles(
   JPEGXL_EMSCRIPTEN
 )
 
+if(APPLE)
+  message(STATUS "Configuring libjxl for Apple platforms - prefixing symbols to avoid App Store private API collisions")
+
+  # Create a list of all JXL symbols that need prefixing
+  set(JXL_SYMBOLS_TO_PREFIX
+          # Decoder symbols
+          JxlDecoderCreate
+          JxlDecoderDestroy
+          JxlDecoderReset
+          JxlDecoderRewind
+          JxlDecoderSetInput
+          JxlDecoderReleaseInput
+          JxlDecoderProcessInput
+          JxlDecoderSubscribeEvents
+          JxlDecoderSetImageOutCallback
+          JxlDecoderSetImageOutBuffer
+          JxlDecoderImageOutBufferSize
+          JxlDecoderGetBasicInfo
+          JxlDecoderGetFrameHeader
+          JxlDecoderGetColorAsEncodedProfile
+          JxlDecoderSetPreferredColorProfile
+          JxlDecoderSetProgressiveDetail
+          JxlDecoderFlushImage
+
+          # Encoder symbols
+          JxlEncoderCreate
+          JxlEncoderDestroy
+          JxlEncoderReset
+          JxlEncoderSetFrameHeader
+          JxlEncoderAddImageFrame
+          JxlEncoderCloseInput
+          JxlEncoderProcessOutput
+
+          # Thread parallel runner
+          JxlThreadParallelRunner
+          JxlThreadParallelRunnerCreate
+          JxlThreadParallelRunnerDestroy
+
+          # Add more as needed...
+  )
+
+  # Generate compile definitions to rename each symbol
+  foreach(symbol ${JXL_SYMBOLS_TO_PREFIX})
+    list(APPEND JXL_APPLE_DEFINITIONS "-D${symbol}=SDL_${symbol}")
+  endforeach()
+
+  # Apply to all targets
+  add_compile_options(${JXL_APPLE_DEFINITIONS})
+
+  # Also need to handle any pkg-config or cmake config files
+  set(JXL_PUBLIC_SYMBOLS_PREFIX "SDL_")
+endif()
+
 message(STATUS "CMAKE_SYSTEM_PROCESSOR is ${CMAKE_SYSTEM_PROCESSOR}")
 include(CheckCXXCompilerFlag)
 check_cxx_compiler_flag("-fsanitize=fuzzer-no-link" CXX_FUZZERS_SUPPORTED)
