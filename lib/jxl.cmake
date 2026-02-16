@@ -362,7 +362,7 @@ endif()
 
 set(JPEGXL_INTERNAL_LIBS
   ${JPEGXL_DEC_INTERNAL_LIBS}
-  brotlienc-static
+  brotlienc
 )
 
 # strips the -static suffix from all the elements in LIST
