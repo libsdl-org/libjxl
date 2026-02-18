@@ -137,7 +137,10 @@ if(JPEG_FOUND)
 endif()
 
 if(NOT JPEGXL_BUNDLE_LIBPNG)
-  find_package(PNG)
+  # PNG is configured after JXL, so PNG::PNG is not available yet
+  if(NOT SDLIMAGE_PNG)
+    find_package(PNG)
+  endif()
 endif()
 if(PNG_FOUND)
   target_sources(jxl_extras_codec-obj PRIVATE
