@@ -71,7 +71,7 @@ else()
   if(BROTLI_EMSCRIPTEN)
     # Brotli only defines the -static targets when using emscripten.
     foreach(brlib IN ITEMS brotlienc brotlidec brotlicommon)
-      add_library(${brlib} ALIAS ${brlib}-static)
+      #add_library(${brlib} ALIAS ${brlib}-static)
     endforeach()
   endif()  # BROTLI_EMSCRIPTEN
 endif()
